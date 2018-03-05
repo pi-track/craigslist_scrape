@@ -20,7 +20,7 @@ class CraigslistScrape::Search
   end
 
   def get_search_criteria
-    puts "I'm going to ask you for some search criteria and scrape results from craigslist. Enter to contine defining search criteria. type Default (d) to default search:s"
+    puts "I'm going to ask you for some search criteria and scrape results from craigslist. Enter to contine defining search criteria. type Default (d) to default search:"
     input = gets.strip.downcase #waits for an enter
     while !['yes', 'y', 'yup', 'exit', 'default', 'd'].include?(input)
       search_criteria = {}
