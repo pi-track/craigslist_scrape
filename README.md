@@ -1,6 +1,6 @@
 # CraigslistScrape
 
-A CLI app to search craigslist for bikes and display/sort them. run bin/craigslist-scrape to launch via the commandline. The default search looks at Philly for bikes.
+A CLI app to search craigslist for bikes and display them. Run bin/craigslist-scrape to launch via the command line. The default search looks at Philly for bikes.
 
 ## Installation
 
@@ -30,7 +30,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/<github username>/craigslist_scrape. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/pi-track/craigslist_scrape. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 

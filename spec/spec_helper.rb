@@ -1,5 +1,6 @@
 require "bundler/setup"
 require "craigslist_scrape"
+require "environment"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

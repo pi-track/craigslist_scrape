@@ -1,5 +1,5 @@
 class CraigslistScrape::Bike
-  attr_accessor :name, :price, :url, :neighborhood, :date, :condition, :make, :model, :size, :mapaddress, :maplink, :description
+  attr_accessor :name, :price, :url, :neighborhood, :date, :condition, :make, :model, :size, :mapaddress, :maplink, :description, :available
 
   #collect all instances of Scrape
   @@all = []
@@ -20,11 +20,11 @@ class CraigslistScrape::Bike
 
   def self.new_from_index_page(b)
     attributes = {}
-    attributes[:name] = b.css("p > a").text
-    attributes[:price] = b.css("p > span.result-meta > span.result-price").text.gsub("$","")
-    attributes[:url] = b.css("p > a").attribute("href").value
+    attributes[:name] = b.css("p > a").text.strip
+    attributes[:price] = b.css("p > span.result-meta > span.result-price").text.gsub("$","").strip
+    attributes[:url] = b.css("p > a").attribute("href").value.strip
     attributes[:neighborhood] = b.css("p > span.result-meta > span.result-hood").text.strip
-    attributes[:date] = b.css("p > time").attribute("datetime").value
+    attributes[:date] = b.css("p > time").attribute("datetime").value.strip
     self.new(attributes)
   end
 
@@ -38,13 +38,13 @@ class CraigslistScrape::Bike
     end
 
     #adds additional attributes
-    @description = doc.css("#postingbody").text.gsub("QR Code Link to This Post","")
-    @mapaddress = doc.css("body > section > section > section > div.mapAndAttrs > div > div.mapaddress").text
-    @maplink = doc.css("body > section > section > section > div.mapAndAttrs > div > p > small > a").attribute("href").value unless doc.css("body > section > section > section > div.mapAndAttrs > div > p > small > a").empty?
+    @description = doc.css("#postingbody").text.gsub("QR Code Link to This Post","").strip
+    @mapaddress = doc.css("body > section > section > section > div.mapAndAttrs > div > div.mapaddress").text.strip
+    @maplink = doc.css("body > section > section > section > div.mapAndAttrs > div > p > small > a").attribute("href").value.strip unless doc.css("body > section > section > section > div.mapAndAttrs > div > p > small > a").empty?
   end
 
   def display
-    required_attrs = [:name, :price, :url, :date, :description]
+    required_attrs = [:name, :price, :url, :date]
     optional_attrs = [:neighborhood, :condition, :make, :model, :size, :mapaddress, :maplink]
     puts ""
     puts "----------------------------------------"
@@ -52,13 +52,17 @@ class CraigslistScrape::Bike
     required_attrs.each do |a|
       title = a.to_s
       title[0] = title[0].capitalize
-      puts "#{title}:           #{send(a.to_s)}"
+      print "#{title}:"
+      (15-title.size).times {print " "}
+      puts "#{send(a.to_s)}"
     end
     optional_attrs.each do |a|
       if send(a.to_s)
         title = a.to_s
         title[0] = title[0].capitalize
-        puts "#{title}:           #{send(a.to_s)}"
+        print "#{title}:"
+        (15-title.size).times {print " "}
+        puts "#{send(a.to_s)}"
       end
     end
     puts ""

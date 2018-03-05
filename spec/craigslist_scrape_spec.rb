@@ -4,6 +4,6 @@ RSpec.describe CraigslistScrape do
   end
 
   it "does something useful" do
-    expect(false).to eq(true)
+    expect(CraigslistScrape::Search.new({:city=>"philadelphia"})).not_to be nil
   end
 end
