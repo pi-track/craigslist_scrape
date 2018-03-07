@@ -49,5 +49,10 @@ class CraigslistScrape::CLI
     i = @search.items[index.to_i-1]
     i.scrape_item_page
     i.display
+    puts "want to open the page? (y/n)?"
+    input = gets.strip.downcase
+    if input == 'y'
+      system("open #{i.url}")
+    end
   end
 end
