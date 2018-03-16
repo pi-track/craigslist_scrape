@@ -42,7 +42,7 @@ class CraigslistScrape::Search
       puts "Any words to search for? You can leave this blank."
       search_criteria[:query] = gets.strip
 
-      puts "OK - does this search look alright?"
+      puts "OK - does this search look alright? (y/n)"
       puts search_criteria
       input = gets.strip.downcase
       ['yes', 'y', 'yup'].include?(input)? (puts "Cool I'll search and get back to you"):(puts "ok lets try again")
@@ -50,7 +50,7 @@ class CraigslistScrape::Search
 
     #returns search criteria hash
     if input == 'default' || input == 'd'
-      search_criteria = {:city=>"philadelphia", :zip_code=>"19147", :search_radius=>"3", :posted_today=>"1", :price_max=>"1000", :price_min=>"10", :query=>"bike"}
+      search_criteria = {:city=>"philadelphia", :zip_code=>"19147", :search_radius=>"3", :posted_today=>"0", :price_max=>"500", :price_min=>"10", :query=>"bike"}
     else
       search_criteria
     end

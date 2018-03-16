@@ -1,5 +1,10 @@
 # Refactoring - Updated from bikes to items
 
+# Enhancements
+* only list 10-20 items at a time in the list display.
+* if no results - display that there are no results instead of an empty list.
+*  
+
 # More Progress 3/2/18
 I have a program working that meets the criteria. I need to take a pass and see if there is anywhere I can refactor for simplicity.
 Made a first_refactor branch to work on refactoring the CLI.
