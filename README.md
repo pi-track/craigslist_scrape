@@ -4,23 +4,13 @@ A CLI app to search craigslist for bikes and display them. Run bin/craigslist-sc
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'craigslist_scrape'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install craigslist_scrape
+Install it yourself by cloning this repository and executing bundle.
 
 ## Usage
 
-TODO: Write usage instructions here
+Type the below from within the craigslist_scrape repo and follow the on screen prompts.
+
+$ bin/craigslist-scrape
 
 ## Development
 
