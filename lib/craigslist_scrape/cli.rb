@@ -17,7 +17,9 @@ class CraigslistScrape::CLI
     while input != 'exit'
       puts "Enter the number of the item you'd like to see more info on or type list to see the list or search for a new search or exit:"
       input = gets.strip.downcase
-      if input.to_i > 0
+      if input.to_i > @search.items.size
+        puts "Not an item. Please select an item number on the list:"
+      elsif input.to_i > 0 && input.to_i-1 < @search.items.size
         puts "more info on #{input}..."
         item_info(input)
       elsif input == 'list'
